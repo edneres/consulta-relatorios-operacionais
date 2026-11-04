@@ -1,0 +1,1200 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.oculto {
+    display: none !important;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+    width: min(100% - 32px, 760px);
+    margin: 0 auto;
+    padding: 32px 0 50px;
+}
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.cabecalho {
+    display: grid;
+    grid-template-columns: 95px 1fr 95px;
+    align-items: center;
+    gap: 18px;
+
+    width: 100%;
+
+    margin-bottom: 18px;
+    padding: 20px 26px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+
+/* LOGOTIPOS */
+
+.logo-cabecalho {
+    display: block;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.logo-fenix {
+    width: 82px;
+    height: 82px;
+    justify-self: center;
+}
+
+.logo-mapa {
+    width: 68px;
+    height: 82px;
+    justify-self: center;
+}
+
+
+/* TEXTOS */
+
+.cabecalho-texto {
+    text-align: center;
+}
+
+.cabecalho h1 {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.cabecalho p {
+    margin: 7px 0 0;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+
+/* =========================================
+   PAINEL PRINCIPAL
+========================================= */
+
+.painel-filtros {
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: none;
+    border-radius: 0;
+
+    box-shadow: none;
+}
+
+
+/* =========================================
+   DELIMITAÇÃO DOS FILTROS
+========================================= */
+
+.card-filtro {
+    width: 100%;
+
+    margin: 0 0 18px;
+    padding: 20px;
+
+    background: transparent;
+
+    border: 1px solid #d7dee8;
+    border-radius: 14px;
+
+    box-shadow: none;
+}
+
+
+/* =========================================
+   GRUPOS DOS FILTROS
+========================================= */
+
+.grupo-filtro {
+    margin-bottom: 24px;
+}
+
+.titulo-filtro {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #374151;
+}
+
+
+/* =========================================
+   CLASSIFICAÇÃO E SUBCLASSIFICAÇÃO
+========================================= */
+
+.opcoes-classificacao {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.opcoes-subcategoria {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.grupo-subcategoria-categoria {
+    width: 100%;
+}
+
+.titulo-subcategoria-categoria {
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #6b7280;
+}
+
+.linha-subcategorias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.opcoes-classificacao label,
+.opcoes-subcategoria label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 46px;
+    padding: 10px 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    background: #ffffff;
+    cursor: pointer;
+
+    font-size: 14px;
+    text-align: center;
+
+    transition:
+        border-color 0.2s,
+        background 0.2s,
+        transform 0.1s;
+}
+
+.opcoes-classificacao label:hover,
+.opcoes-subcategoria label:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.opcoes-classificacao label:active,
+.opcoes-subcategoria label:active {
+    transform: scale(0.98);
+}
+
+.opcoes-classificacao input,
+.opcoes-subcategoria input {
+    accent-color: #111827;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   PERÍODO
+========================================= */
+
+.periodo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+/* Campos nativos mantidos apenas para lógica interna */
+
+.card-periodo > .periodo {
+    display: none;
+}
+
+.campo-data {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo-data label {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.campo-data input {
+    width: 100%;
+    min-height: 46px;
+
+    padding: 10px 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #111827;
+
+    outline: none;
+}
+
+.campo-data input:focus {
+    border-color: #111827;
+}
+
+
+/* =========================================
+   BOTÃO BUSCAR
+========================================= */
+
+#botao-pesquisar {
+    width: 100%;
+    min-height: 50px;
+
+    border: 0;
+    border-radius: 11px;
+
+    background: #111827;
+    color: #ffffff;
+
+    font-weight: 700;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.2s,
+        transform 0.1s;
+}
+
+#botao-pesquisar:not(:disabled):active {
+    transform: scale(0.99);
+}
+
+#botao-pesquisar:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   RESULTADOS
+========================================= */
+
+.secao-resultados {
+    margin-top: 22px;
+    padding: 24px;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+.cabecalho-resultados {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.cabecalho-resultados h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+#quantidade-resultados {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 28px;
+    height: 28px;
+    padding: 0 8px;
+
+    border-radius: 999px;
+
+    background: #111827;
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   SEM RESULTADOS
+========================================= */
+
+.sem-resultados {
+    margin-top: 22px;
+    padding: 20px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.sem-resultados p {
+    margin: 0;
+}
+
+
+/* =========================================
+   SELETOR PERSONALIZADO DE PERÍODO
+========================================= */
+
+.seletor-periodo {
+    position: relative;
+    width: 100%;
+    margin-top: 12px;
+}
+
+
+/* =========================================
+   CAMPO QUE ABRE O CALENDÁRIO
+========================================= */
+
+.campo-periodo-personalizado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    width: 100%;
+    min-height: 58px;
+
+    padding: 10px 14px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #111827;
+
+    text-align: left;
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+.campo-periodo-personalizado:hover {
+    border-color: #9ca3af;
+    background: #fafafa;
+}
+
+.campo-periodo-personalizado:focus {
+    outline: none;
+
+    border-color: #6b7280;
+
+    box-shadow:
+        0 0 0 3px rgba(107, 114, 128, 0.12);
+}
+
+
+/* =========================================
+   RESUMO DO PERÍODO
+========================================= */
+
+.periodo-resumo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.periodo-rotulo {
+    font-size: 11px;
+    font-weight: 600;
+
+    color: #6b7280;
+}
+
+#periodo-valor {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #111827;
+}
+
+.periodo-icone {
+    flex-shrink: 0;
+
+    font-size: 20px;
+}
+
+
+/* =========================================
+   CALENDÁRIO
+========================================= */
+
+.calendario-personalizado {
+    position: absolute;
+
+    top: calc(100% + 8px);
+    left: 0;
+
+    z-index: 100;
+
+    width: 340px;
+    max-width: 100%;
+
+    padding: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #d7dee8;
+    border-radius: 14px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================================
+   CABEÇALHO DO CALENDÁRIO
+========================================= */
+
+.calendario-cabecalho {
+    display: grid;
+    grid-template-columns: 38px 1fr 38px;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 16px;
+}
+
+.calendario-mes-ano {
+    text-align: center;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+
+/* =========================================
+   BOTÕES DE NAVEGAÇÃO
+========================================= */
+
+.calendario-navegacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 9px;
+
+    background: #f9fafb;
+    color: #374151;
+
+    font-size: 24px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        border-color 0.2s,
+        transform 0.1s;
+}
+
+.calendario-navegacao:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.calendario-navegacao:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================================
+   DIAS DA SEMANA
+========================================= */
+
+.calendario-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    margin-bottom: 6px;
+}
+
+.calendario-semana span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 28px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    color: #6b7280;
+}
+
+
+/* =========================================
+   GRADE DOS DIAS
+========================================= */
+
+.calendario-dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 4px;
+}
+
+
+/* =========================================
+   DIA
+========================================= */
+
+.calendario-dia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1 / 1;
+
+    padding: 0;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    background: transparent;
+    color: #374151;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s,
+        border-color 0.15s,
+        color 0.15s,
+        transform 0.1s;
+}
+
+.calendario-dia:hover {
+    background: #f3f4f6;
+    border-color: #e5e7eb;
+}
+
+.calendario-dia:active {
+    transform: scale(0.92);
+}
+
+
+/* =========================================
+   DIA ATUAL
+========================================= */
+
+.calendario-dia.hoje {
+    border-color: #16a34a;
+
+    color: #15803d;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   DATA INICIAL E FINAL
+========================================= */
+
+.calendario-dia.selecionado {
+    background: #16a34a;
+    border-color: #16a34a;
+
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   INTERVALO ENTRE AS DATAS
+========================================= */
+
+.calendario-dia.no-intervalo {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+
+/* =========================================
+   DIAS FORA DO MÊS
+========================================= */
+
+.calendario-dia.fora-mes {
+    color: #c4c9d0;
+}
+
+
+/* =========================================
+   RODAPÉ DO CALENDÁRIO
+========================================= */
+
+.calendario-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 14px;
+    padding-top: 12px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.calendario-acao {
+    padding: 6px 10px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: transparent;
+    color: #15803d;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        color 0.2s;
+}
+
+.calendario-acao:hover {
+    background: #f0fdf4;
+
+    color: #166534;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .calendario-personalizado {
+        width: 100%;
+
+        padding: 14px;
+
+        border-radius: 12px;
+    }
+
+    .calendario-cabecalho {
+        grid-template-columns: 36px 1fr 36px;
+    }
+
+    .calendario-navegacao {
+        width: 36px;
+        height: 36px;
+    }
+
+    .calendario-dia {
+        font-size: 12px;
+        border-radius: 7px;
+    }
+
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: min(100% - 24px, 760px);
+        padding-top: 22px;
+    }
+
+    .cabecalho h1 {
+        font-size: 23px;
+    }
+
+    .painel-filtros,
+    .secao-resultados {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .opcoes-classificacao,
+    .linha-subcategorias {
+        grid-template-columns: 1fr;
+    }
+
+    .periodo {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================
+   LIMPAR FILTROS
+========================================= */
+
+.cabecalho-filtro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.cabecalho-filtro .titulo-filtro {
+    margin-bottom: 0;
+}
+
+/* =========================================
+   LIMPAR FILTROS
+========================================= */
+
+.cabecalho-filtro {
+    margin-bottom: 10px;
+}
+
+.cabecalho-filtro .titulo-filtro {
+    margin-bottom: 0;
+}
+
+
+/*
+BOTÃO LIMPAR
+*/
+
+.botao-limpar-filtro {
+    min-width: 78px;
+    padding: 7px 16px;
+
+    border: 1px solid #15803d;
+    border-radius: 8px;
+
+    background: #16a34a;
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        border-color 0.2s,
+        transform 0.1s;
+}
+
+.botao-limpar-filtro:hover {
+    background: #15803d;
+    border-color: #166534;
+}
+
+.botao-limpar-filtro:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================
+   ÁREA DOS BOTÕES LIMPAR
+========================================= */
+
+.area-limpar-classificacao,
+.area-limpar-subclassificacao {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+
+
+/* =========================================
+   BOTÃO LIMPAR
+========================================= */
+
+.botao-limpar-filtro {
+    min-width: 60px;
+    padding: 5px 11px;
+
+    border: 1px solid #15803d;
+    border-radius: 7px;
+
+    background: #16a34a;
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        border-color 0.2s,
+        transform 0.1s;
+}
+
+.botao-limpar-filtro:hover {
+    background: #15803d;
+    border-color: #166534;
+}
+
+.botao-limpar-filtro:active {
+    transform: scale(0.96);
+}
+
+.area-limpar-classificacao {
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.area-limpar-subclassificacao {
+    margin-bottom: 4px;
+}
+
+/* =========================================
+   HIERARQUIA - SUBCLASSIFICAÇÃO
+========================================= */
+
+
+.card-periodo {
+    width: 100%;
+    margin-left: 0;
+}
+
+.card-filtro > .cabecalho-filtro .titulo-filtro,
+.card-periodo > .titulo-filtro {
+    display: block;
+
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+#botao-pesquisar {
+    margin-top: 8px;
+}
+
+/* =========================================
+   SUBCLASSIFICAÇÃO INTERNA
+========================================= */
+
+.subclassificacao-interna {
+    margin-top: 18px;
+    padding-top: 16px;
+    padding-left: 18px;
+
+    border-left: 3px solid #d1d5db;
+}
+
+
+/* TÍTULO */
+
+.subclassificacao-interna
+> .cabecalho-filtro {
+    margin-bottom: 10px;
+}
+
+.subclassificacao-interna
+> .cabecalho-filtro
+.titulo-filtro {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+
+/*
+=========================================
+LISTA DE RESULTADOS COM ROLAGEM
+=========================================
+*/
+
+.lista-resultados-rolagem {
+    max-height: 232px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-right: 8px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #9ca3af #f3f4f6;
+}
+
+.item-resultado {
+    display: flex;
+    align-items: center;
+
+    min-height: 58px;
+    padding: 12px 10px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.item-resultado:last-child {
+    border-bottom: none;
+}
+
+/*
+=========================================
+BOTÃO BAIXAR EM LOTE
+=========================================
+*/
+
+.area-download-lote {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 18px;
+    padding-top: 16px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.botao-download-lote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    min-height: 46px;
+
+    padding: 10px 18px;
+
+    background: #16a34a;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background 0.2s;
+}
+
+.botao-download-lote:hover {
+    background: #15803d;
+}
+
+.icone-download-lote {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/*
+=========================================
+RODAPÉ / IDENTIFICAÇÃO
+=========================================
+*/
+
+.rodape-aplicacao {
+    width: 100%;
+    margin-top: 36px;
+    padding: 24px 16px 18px;
+    text-align: center;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.link-desenvolvedora {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link-desenvolvedora:hover {
+    color: #0a66c2;
+}
+
+.linkedin-icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    background: #0a66c2;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.rodape-aplicacao p {
+    margin: 3px 0;
+}
+
+.versao-aplicacao {
+    margin-top: 8px;
+    color: #9ca3af;
+    font-size: 11px;
+    text-align: right;
+    opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+    .rodape-aplicacao {
+        padding: 20px 12px 16px;
+        font-size: 11px;
+    }
+
+    .link-desenvolvedora {
+        font-size: 12px;
+    }
+}
+
+/*
+=========================================
+LAYOUT CONTÍNUO - FUNDO BRANCO
+=========================================
+*/
+
+/* Contêiner principal */
+main.container {
+    background: #ffffff;
+    border-radius: 12px 12px 0 0;
+    overflow: visible;
+}
+
+/* Cabeçalho */
+main.container > header {
+    margin-bottom: 0;
+    border-radius: 12px 12px 0 0;
+    box-shadow: none;
+}
+
+/* Seções principais */
+main.container > section {
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Rodapé integrado visualmente */
+.rodape-aplicacao {
+    background: #ffffff;
+    margin-top: 0;
+    border-top: 1px solid #e5e7eb;
+    border-radius: 0 0 12px 12px;
+}
+
+/* Fundo externo da página */
+body {
+    background: #f3f4f6;
+}
+
+/*
+=========================================
+UNIÃO DO CONTEÚDO COM O RODAPÉ
+=========================================
+*/
+
+main.container {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Rodapé alinhado à largura do conteúdo principal */
+
+.rodape-aplicacao {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 0 0 12px 12px;
+}
+
+/* Remove a linha cinza superior do cabeçalho */
+
+main.container,
+main.container > header {
+    border-top: none !important;
+}

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    
+    <!-- Nome da aba do navegador -->
+    <title>Consulta de Relatórios Operacionais</title>
+
+    <!-- Configuração do aplicativo -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#111827">
+
+    <!-- Compartilhamento em WhatsApp e redes sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Consulta de Relatórios Operacionais">
+    <meta property="og:description" content="Consulte e baixe relatórios operacionais da Regional Leste - Maranhão.">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Ícone do navegador -->
+    <link rel="icon" type="image/png" href="icons/app-icon-192.png">
+    <link rel="apple-touch-icon" href="icons/app-icon-192.png">
+
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Consulta de Relatórios Operacionais"
+    >
+
+    <title>
+        Consulta de Relatórios Operacionais
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="container">
+
+
+        <!-- =========================================
+            CABEÇALHO
+        ========================================== -->
+
+        <header class="cabecalho">
+
+            <img
+                src="assets/icons/fenix.png"
+                alt="Fênix"
+                class="logo-cabecalho logo-fenix"
+            >
+
+            <div class="cabecalho-texto">
+
+                <h1>
+                    CONSULTA DE RELATÓRIOS OPERACIONAIS
+                </h1>
+
+                <p>
+                    Regional Leste
+                </p>
+
+            </div>
+
+            <img
+                src="assets/icons/mapa.png"
+                alt="Mapa do Maranhão"
+                class="logo-cabecalho logo-mapa"
+            >
+
+        </header>
+
+
+        <!-- =========================================
+            FILTROS
+        ========================================== -->
+
+        <section class="painel-filtros">
+
+            <!-- =====================================
+                CLASSIFICAÇÃO DO REGISTRO
+            ====================================== -->
+
+            <div class="grupo-filtro card-filtro">
+
+                <div class="cabecalho-filtro">
+
+                    <label class="titulo-filtro">
+                        Classificação dos Registros
+                    </label>
+
+                </div>
+
+
+                <div class="opcoes-classificacao">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            name="categoria"
+                            value="expansao"
+                        >
+
+                        Expansão
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            name="categoria"
+                            value="manutencao"
+                        >
+
+                        Manutenção
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            name="categoria"
+                            value="leiturista"
+                        >
+
+                        Leiturista
+
+                    </label>
+
+                </div>
+
+
+                <!-- LIMPAR CLASSIFICAÇÃO -->
+
+                <div class="area-limpar-classificacao">
+
+                    <button
+                        type="button"
+                        id="limpar-classificacao"
+                        class="botao-limpar-filtro oculto"
+                    >
+                        Limpar
+                    </button>
+
+                </div>
+
+
+                <!-- =================================
+                    SUBCLASSIFICAÇÃO
+                ================================== -->
+
+                <div
+                    id="grupo-subcategoria"
+                    class="subclassificacao-interna oculto"
+                >
+
+                    <div class="cabecalho-filtro">
+
+                        <label class="titulo-filtro">
+                            Subclassificação
+                        </label>
+
+                    </div>
+
+
+                    <div
+                        id="opcoes-subcategoria"
+                        class="opcoes-subcategoria"
+                    >
+                    </div>
+
+
+                    <!-- LIMPAR SUBCLASSIFICAÇÃO -->
+
+                    <div class="area-limpar-subclassificacao">
+
+                        <button
+                            type="button"
+                            id="limpar-subclassificacao"
+                            class="botao-limpar-filtro oculto"
+                        >
+                            Limpar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                SUBCLASSIFICAÇÃO
+            ====================================== -->
+
+           <div
+                id="grupo-subcategoria"
+                class="grupo-filtro card-filtro card-subclassificacao oculto"
+            >
+                <div class="cabecalho-filtro">
+
+                    <label class="titulo-filtro">
+                        Subclassificação
+                    </label>
+
+                </div>
+
+
+                <!--
+                    As subclassificações são
+                    inseridas pelo app.js
+                -->
+
+                <div
+                    id="opcoes-subcategoria"
+                    class="opcoes-subcategoria"
+                >
+                </div>
+
+
+                <!-- LIMPAR SUBCLASSIFICAÇÃO -->
+
+                <div class="area-limpar-subclassificacao">
+
+                    <button
+                        type="button"
+                        id="limpar-subclassificacao"
+                        class="botao-limpar-filtro oculto"
+                    >
+                        Limpar
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                PERÍODO
+            ====================================== -->
+
+            <div class="grupo-filtro card-filtro card-periodo">
+
+                <label class="titulo-filtro">
+                    Período
+                </label>
+
+                <!-- =================================
+                    SELETOR PERSONALIZADO DE PERÍODO
+                ================================== -->
+
+                <div
+                    id="seletor-periodo"
+                    class="seletor-periodo"
+                >
+
+                    <div
+                        id="abrir-calendario"
+                        class="campo-periodo-personalizado"
+                    >
+
+                        <div class="periodo-resumo">
+
+                            <span class="periodo-rotulo">
+                                Período selecionado
+                            </span>
+
+                            <div class="periodo-datas-digitaveis">
+
+                                <input
+                                    type="text"
+                                    id="data-inicial-digitada"
+                                    class="data-periodo-digitada"
+                                    placeholder="dd/mm/aaaa"
+                                    inputmode="numeric"
+                                    maxlength="10"
+                                    autocomplete="off"
+                                    aria-label="Data inicial"
+                                >
+
+                                <span class="periodo-seta">
+                                    →
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="data-final-digitada"
+                                    class="data-periodo-digitada"
+                                    placeholder="dd/mm/aaaa"
+                                    inputmode="numeric"
+                                    maxlength="10"
+                                    autocomplete="off"
+                                    aria-label="Data final"
+                                >
+
+                            </div>
+
+                            <!-- Mantido para compatibilidade com o JavaScript atual -->
+                            <span
+                                id="periodo-valor"
+                                class="oculto"
+                            >
+                                Selecione uma data inicial e final
+                            </span>
+
+                        </div>
+
+                        <span
+                            class="periodo-icone"
+                            aria-hidden="true"
+                        >
+                            📅
+                        </span>
+
+                    </div>
+
+
+                    <!-- CALENDÁRIO -->
+
+                    <div
+                        id="calendario-personalizado"
+                        class="calendario-personalizado oculto"
+                    >
+
+                        <!-- CABEÇALHO DO CALENDÁRIO -->
+
+                        <div class="calendario-cabecalho">
+
+                            <button
+                                type="button"
+                                id="mes-anterior"
+                                class="calendario-navegacao"
+                                aria-label="Mês anterior"
+                            >
+                                ‹
+                            </button>
+
+
+                            <div
+                                id="calendario-mes-ano"
+                                class="calendario-mes-ano"
+                            >
+                            </div>
+
+
+                            <button
+                                type="button"
+                                id="proximo-mes"
+                                class="calendario-navegacao"
+                                aria-label="Próximo mês"
+                            >
+                                ›
+                            </button>
+
+                        </div>
+
+
+                        <!-- DIAS DA SEMANA -->
+
+                        <div class="calendario-semana">
+
+                            <span>D</span>
+                            <span>S</span>
+                            <span>T</span>
+                            <span>Q</span>
+                            <span>Q</span>
+                            <span>S</span>
+                            <span>S</span>
+
+                        </div>
+
+
+                        <!-- DIAS DO MÊS -->
+
+                        <div
+                            id="calendario-dias"
+                            class="calendario-dias"
+                        >
+                        </div>
+
+
+                        <!-- RODAPÉ -->
+
+                        <div class="calendario-rodape">
+
+                            <button
+                                type="button"
+                                id="limpar-periodo"
+                                class="calendario-acao"
+                            >
+                                Limpar
+                            </button>
+
+                            <button
+                                type="button"
+                                id="selecionar-hoje"
+                                class="calendario-acao"
+                            >
+                                Hoje
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="periodo">
+
+
+                    <!-- DATA INICIAL -->
+
+                    <div class="campo-data">
+
+                        <label for="data-inicial">
+                            Data inicial
+                        </label>
+
+                        <input
+                            type="date"
+                            id="data-inicial"
+                        >
+
+                    </div>
+
+
+                    <!-- DATA FINAL -->
+
+                    <div class="campo-data">
+
+                        <label for="data-final">
+                            Data final
+                        </label>
+
+                        <input
+                            type="date"
+                            id="data-final"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                BOTÃO PESQUISAR
+            ====================================== -->
+
+            <button
+                type="button"
+                id="botao-pesquisar"
+                disabled
+            >
+                🔍 Buscar Relatórios
+            </button>
+
+        </section>
+
+
+        <!-- =========================================
+            RESULTADOS
+        ========================================== -->
+
+        <section
+            id="secao-resultados"
+            class="secao-resultados oculto"
+        >
+
+            <div class="cabecalho-resultados">
+
+                <h2>
+                    Relatórios Encontrados
+                </h2>
+
+                <span id="quantidade-resultados">
+                    0
+                </span>
+
+            </div>
+
+
+            <div
+                id="lista-resultados"
+                class="lista-resultados-rolagem"
+            >
+            </div>
+
+            <div class="area-download-lote">
+
+                <button
+                    type="button"
+                    id="botao-download-lote"
+                    class="botao-download-lote"
+                >
+                    <span>Baixar em lote</span>
+                    <span class="icone-download-lote">↓</span>
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+            SEM RESULTADOS
+        ========================================== -->
+
+        <section
+            id="sem-resultados"
+            class="sem-resultados oculto"
+        >
+
+            <p>
+                Nenhum relatório encontrado para os filtros selecionados.
+            </p>
+
+        </section>
+
+
+
+    </main>
+
+    <!-- =========================================
+        RODAPÉ / IDENTIFICAÇÃO
+    ========================================== -->
+
+    <footer class="rodape-aplicacao">
+
+        <a
+            href="https://www.linkedin.com/in/mariaediv%C3%A2nia"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-desenvolvedora"
+        >
+
+            <span>
+                Maria Edivânia Neres de Sousa
+            </span>
+
+            <span
+                class="linkedin-icone"
+                aria-label="LinkedIn"
+            >
+                in
+            </span>
+
+        </a>
+
+        <p>
+            Gerência de Serviços Técnicos Comerciais Maranhão
+        </p>
+
+        <p>
+            Equatorial Energia - Teresina, Piauí
+        </p>
+
+        <p>
+            2026
+        </p>
+
+        <div
+            id="versao-app"
+            style="
+                margin-top: 6px;
+                font-size: 11px;
+                color: #9ca3af;
+                text-align: right;
+                opacity: 0.8;
+            "
+        >
+        </div>
+
+        <script>
+
+            const VERSAO_APP = "v2.5.0";
+
+            document.getElementById("versao-app").textContent =
+                VERSAO_APP;
+
+            console.log(
+                `%cRelatório de Bordo Operacional — ${VERSAO_APP}`,
+                "font-weight: bold; font-size: 14px;"
+            );
+
+        </script>
+
+    </footer>
+
+
+
+    <!-- =========================================
+        SCRIPTS
+    ========================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+
+    
+    <!-- =========================================
+        REGISTRO DO SERVICE WORKER - RBO CONSULTA
+    ========================================= -->
+
+    <script>
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener("load", function () {
+
+                navigator.serviceWorker
+                    .register("./service-worker.js")
+                    .then(function (registro) {
+
+                        console.log(
+                            "RBO Consulta - Service Worker registrado:",
+                            registro.scope
+                        );
+
+                    })
+                    .catch(function (erro) {
+
+                        console.error(
+                            "Erro ao registrar Service Worker:",
+                            erro
+                        );
+
+                    });
+
+            });
+
+        }
+    </script>
+
+
+</body>
+
+</html>
