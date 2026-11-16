@@ -485,7 +485,7 @@ input {
     /* Abre o calendário acima do campo de período */
     top: auto;
     bottom: calc(100% + 8px);
-    left: auto;
+    left: auto;   
     right: 0;
 
     z-index: 100;

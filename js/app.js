@@ -2255,7 +2255,7 @@ async function baixarRelatoriosEmLote() {
 
         const nomeZIP =
             `RBO - ${seccionalSelecionada} - ` +
-            `${nomeClassificacao} - ${periodo}.zip`;
+            `${nomeClassificacao} - ${periodo}.zip`;  
 
         // Download do ZIP.
 

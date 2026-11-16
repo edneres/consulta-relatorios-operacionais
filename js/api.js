@@ -19,7 +19,7 @@ async function consultarRelatoriosAPI(
     dataFinal,
     filtros,
     seccional = "todas"
-) {
+) {  
 
     const parametros = new URLSearchParams({
         inicio: dataInicial,
