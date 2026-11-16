@@ -1,4 +1,3 @@
-
 /*
 =========================================================
 API - CONSULTA DE RELATÓRIOS OPERACIONAIS
@@ -6,8 +5,7 @@ Comunicação com o Cloudflare Worker
 =========================================================
 */
 
-const API_URL =
-    "https://consulta-relatorios-api.rboregionalleste.workers.dev";
+const API_URL = "https://rbo-consulta-relatorios-api.rbo-regional-leste-ma.workers.dev";
 
 
 /*
@@ -19,17 +17,18 @@ PESQUISAR RELATÓRIOS
 async function consultarRelatoriosAPI(
     dataInicial,
     dataFinal,
-    filtros
+    filtros,
+    seccional = "todas"
 ) {
 
     const parametros = new URLSearchParams({
         inicio: dataInicial,
         fim: dataFinal,
-        filtros: JSON.stringify(filtros)
+        filtros: JSON.stringify(filtros),
+        seccional: seccional
     });
 
-    const url =
-        `${API_URL}/relatorios?${parametros.toString()}`;
+    const url = `${API_URL.replace(/\/+$/, "")}/relatorios?${parametros.toString()}`;
 
     try {
 

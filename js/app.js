@@ -78,6 +78,9 @@ const checkboxesCategoria =
         'input[name="categoria"]'
     );
 
+const filtroSeccional =
+    document.getElementById("filtro-seccional");
+
 const grupoSubcategoria =
     document.getElementById(
         "grupo-subcategoria"
@@ -1838,6 +1841,10 @@ botaoPesquisar.addEventListener(
 
         const filtros = obterFiltrosParaAPI();
 
+        const seccional = filtroSeccional
+            ? filtroSeccional.value
+            : "todas";
+
         const secaoResultados =
             document.getElementById("secao-resultados");
 
@@ -1869,7 +1876,8 @@ botaoPesquisar.addEventListener(
                 await consultarRelatoriosAPI(
                     inicio,
                     fim,
-                    filtros
+                    filtros,
+                    seccional
                 );
 
             relatoriosUltimaPesquisa = resultado.relatorios || [];
@@ -2185,25 +2193,69 @@ async function baixarRelatoriosEmLote() {
             }
         );
 
-        // Nome do ZIP com o período pesquisado.
+        // Nome do ZIP conforme os filtros da pesquisa.
 
         function formatarDataArquivo(data) {
             const [ano, mes, dia] = data.split("-");
             return `${dia}-${mes}-${ano.slice(-2)}`;
         }
 
-        const inicio = formatarDataArquivo(
-            dataInicial.value
-        );
+        // 1. Seccional selecionada.
 
-        const fim = formatarDataArquivo(
+        const seccionalSelecionada =
+            filtroSeccional.options[
+                filtroSeccional.selectedIndex
+            ].text;
+
+        // 2. Classificações selecionadas.
+
+        const abreviacoes = {
+            expansao: "Exp",
+            manutencao: "Man",
+            leiturista: "Leit"
+        };
+
+        const classificacoesSelecionadas =
+            obterCategoriasSelecionadas()
+                .map(categoria => abreviacoes[categoria])
+                .filter(Boolean);
+
+        const nomeClassificacao =
+            classificacoesSelecionadas.join(" + ");
+
+        // 3. Período da pesquisa.
+
+        const datas = [
+            dataInicial.value,
             dataFinal.value
-        );
+        ].sort();
+
+        const hoje = new Date();
+
+        const hojeISO = [
+            hoje.getFullYear(),
+            String(hoje.getMonth() + 1).padStart(2, "0"),
+            String(hoje.getDate()).padStart(2, "0")
+        ].join("-");
+
+        let periodo;
+
+        if (
+            datas[0] === datas[1] &&
+            datas[0] === hojeISO
+        ) {
+            periodo = `(${formatarDataArquivo(datas[0])})`;
+        } else {
+            periodo =
+                `(${formatarDataArquivo(datas[0])}, ` +
+                `${formatarDataArquivo(datas[1])})`;
+        }
+
+        // 4. Nome final do ZIP.
 
         const nomeZIP =
-            dataInicial.value === dataFinal.value
-                ? `Relatorios_Operacionais_${inicio}.zip`
-                : `Relatorios_Operacionais_${inicio}_a_${fim}.zip`;
+            `RBO - ${seccionalSelecionada} - ` +
+            `${nomeClassificacao} - ${periodo}.zip`;
 
         // Download do ZIP.
 

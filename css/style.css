@@ -482,8 +482,11 @@ input {
 .calendario-personalizado {
     position: absolute;
 
-    top: calc(100% + 8px);
-    left: 0;
+    /* Abre o calendário acima do campo de período */
+    top: auto;
+    bottom: calc(100% + 8px);
+    left: auto;
+    right: 0;
 
     z-index: 100;
 
@@ -1197,4 +1200,41 @@ main.container {
 main.container,
 main.container > header {
     border-top: none !important;
+}
+
+/* =========================================
+   FILTRO POR SECCIONAL
+========================================= */
+
+.card-seccional {
+    width: 100%;
+}
+
+/* Mantém o título de Seccional com a mesma hierarquia visual
+   de Classificação dos Registros. */
+.card-seccional > .titulo-filtro {
+    display: block;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+}
+
+#filtro-seccional {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    color: #1f2937;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+    cursor: pointer;
+}
+
+#filtro-seccional:focus {
+    outline: 2px solid #93c5fd;
+    outline-offset: 2px;
+    border-color: #2563eb;
 }

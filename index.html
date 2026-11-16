@@ -88,6 +88,21 @@
                 CLASSIFICAÇÃO DO REGISTRO
             ====================================== -->
 
+            <!-- FILTRO POR SECCIONAL -->
+            <div class="grupo-filtro card-filtro card-seccional">
+                <label for="filtro-seccional" class="titulo-filtro">
+                    Seccional
+                </label>
+                <select id="filtro-seccional" name="seccional">
+                    <option value="todas" selected>Todas as seccionais</option>
+                    <option value="Caxias">Caxias</option>
+                    <option value="Chapadinha">Chapadinha</option>
+                    <option value="Timon">Timon</option>
+                    <option value="São João dos Patos">São João dos Patos</option>
+                </select>
+            </div>
+
+
             <div class="grupo-filtro card-filtro">
 
                 <div class="cabecalho-filtro">
@@ -205,49 +220,7 @@
                 SUBCLASSIFICAÇÃO
             ====================================== -->
 
-           <div
-                id="grupo-subcategoria"
-                class="grupo-filtro card-filtro card-subclassificacao oculto"
-            >
-                <div class="cabecalho-filtro">
-
-                    <label class="titulo-filtro">
-                        Subclassificação
-                    </label>
-
-                </div>
-
-
-                <!--
-                    As subclassificações são
-                    inseridas pelo app.js
-                -->
-
-                <div
-                    id="opcoes-subcategoria"
-                    class="opcoes-subcategoria"
-                >
-                </div>
-
-
-                <!-- LIMPAR SUBCLASSIFICAÇÃO -->
-
-                <div class="area-limpar-subclassificacao">
-
-                    <button
-                        type="button"
-                        id="limpar-subclassificacao"
-                        class="botao-limpar-filtro oculto"
-                    >
-                        Limpar
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
+                       <!-- =====================================
                 PERÍODO
             ====================================== -->
 
@@ -585,7 +558,7 @@
 
         <script>
 
-            const VERSAO_APP = "v2.5.0";
+            const VERSAO_APP = "v2.5.4";
 
             document.getElementById("versao-app").textContent =
                 VERSAO_APP;
